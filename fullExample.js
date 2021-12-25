@@ -20,6 +20,7 @@ app.get("/", function (req, res) {
 });
 
 // (4) Serve Static Assets
+// ex2 should be replaced with 3,4 from now
 app.use("/public", express.static(base + "/public"));
 
 // (3) Serve an HTML file
@@ -35,6 +36,15 @@ app.get("/json", function (req, res) {
 });
 
 // (6) Use the .env File
+// ex5 should be replaced with 6 from now
+const mySecret = process.env["MESSAGE_STYLE"]; // =uppercase (in your .env or Replit/Secrets)
+
+app.get("/json", function (req, res) {
+  const msg = "Hello json";
+  process.env.MESSAGE_STYLE === "uppercase"
+    ? res.json({ message: msg.toUpperCase() })
+    : res.json({ message: msg });
+});
 
 // (7) Implement a Root-Level Request Logger Middleware (a logger)
 

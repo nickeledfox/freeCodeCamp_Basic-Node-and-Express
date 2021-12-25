@@ -1,0 +1,10 @@
+// (6) Use the .env File
+// ex5 should be replaced with 6 from now
+const mySecret = process.env['MESSAGE_STYLE']  // =uppercase (in your .env or Replit/Secrets)
+
+app.get('/json', function(req, res){
+  const msg = 'Hello json'
+ process.env.MESSAGE_STYLE === 'uppercase' ?
+    res.json({'message': msg.toUpperCase()}) :
+    res.json({'message': msg})
+})
