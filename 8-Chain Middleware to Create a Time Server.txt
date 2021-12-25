@@ -1,0 +1,23 @@
+var express = require('express');
+var app = express();
+
+// (8) Chain Middleware to Create a Time Server
+app.get('/now', function(req, res, next) {
+  req.time = (new Date()).toString();
+  next();
+}, function(req, res) {
+  res.json({time:req.time});
+});
+
+
+
+
+
+
+/*
+===========================================================
+                DO NOT EDIT BELOW THIS LINE
+===========================================================
+*/
+
+ module.exports = app;
