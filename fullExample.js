@@ -19,16 +19,20 @@ app.get("/", function (req, res) {
   res.send("Hello Express");
 });
 
+// (4) Serve Static Assets
+app.use("/public", express.static(base + "/public"));
+
 // (3) Serve an HTML file
 app.get("/", function (req, res) {
   const htmlPath = base + "/views/index.html";
   res.sendFile(htmlPath);
 });
 
-// (4) Serve Static Assets
-app.use("/public", express.static(base + "/public"));
-
 // (5) Serve JSON on a Specific Route
+app.get("/json", function (req, res) {
+  const msg = { message: "Hello json" };
+  res.json(msg);
+});
 
 // (6) Use the .env File
 
