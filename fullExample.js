@@ -3,12 +3,15 @@ var app = express();
 
 const base = __dirname;
 
-/* ============================================ 
-(7)  Mount the Logger here
-=============================================== */
+// (7) Implement a Root-Level Request Logger Middleware
+app.use(function (req, res, next) {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);
+
+  next();
+});
 
 /* ============================================ 
-(11)  Mount the body-parser here
+(11)  The body-parser goes here
 =============================================== */
 
 // (1) Meet the node console.
@@ -45,8 +48,6 @@ app.get("/json", function (req, res) {
     ? res.json({ message: msg.toUpperCase() })
     : res.json({ message: msg });
 });
-
-// (7) Implement a Root-Level Request Logger Middleware (a logger)
 
 // (8) Chain Middleware to Create a Time Server
 
