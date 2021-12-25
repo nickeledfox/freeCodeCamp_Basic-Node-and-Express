@@ -1,0 +1,23 @@
+var express = require('express');
+var app = express();
+
+// (3) Serve an HTML file
+app.get("/", function (req, res) {
+  const path = __dirname + "/views/index.html";
+  res.sendFile(path);
+});
+
+
+
+
+
+
+
+
+/*
+===========================================================
+                DO NOT EDIT BELOW THIS LINE
+===========================================================
+*/
+
+ module.exports = app;
