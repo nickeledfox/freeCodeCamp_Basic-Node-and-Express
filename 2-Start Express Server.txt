@@ -1,0 +1,22 @@
+var express = require('express');
+var app = express();
+
+// (2) Start a Working Express Server
+app.get("/", function (req, res) {
+  res.send("Hello Express");
+});
+
+
+
+
+
+
+
+
+/*
+===========================================================
+                DO NOT EDIT BELOW THIS LINE
+===========================================================
+*/
+
+ module.exports = app;
