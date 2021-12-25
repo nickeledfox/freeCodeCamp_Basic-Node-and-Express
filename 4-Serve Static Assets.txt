@@ -1,0 +1,27 @@
+var express = require('express');
+var app = express();
+
+const base = __dirname
+
+// (4) Serve Static Assets
+app.use('/public', express.static(base + '/public' ))
+
+// (3) Serve an HTML file
+app.get("/", function (req, res) {
+  const htmlPath = base + '/views/index.html'
+  res.sendFile(htmlPath);
+});
+
+
+
+
+
+
+
+/*
+===========================================================
+                DO NOT EDIT BELOW THIS LINE
+===========================================================
+*/
+
+ module.exports = app;

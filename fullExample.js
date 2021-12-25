@@ -1,6 +1,8 @@
 var express = require("express");
 var app = express();
 
+const base = __dirname;
+
 /* ============================================ 
 (7)  Mount the Logger here
 =============================================== */
@@ -19,11 +21,12 @@ app.get("/", function (req, res) {
 
 // (3) Serve an HTML file
 app.get("/", function (req, res) {
-  const path = __dirname + "/views/index.html";
-  res.sendFile(path);
+  const htmlPath = base + "/views/index.html";
+  res.sendFile(htmlPath);
 });
 
 // (4) Serve Static Assets
+app.use("/public", express.static(base + "/public"));
 
 // (5) Serve JSON on a Specific Route
 
