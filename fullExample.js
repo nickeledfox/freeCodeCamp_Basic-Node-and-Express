@@ -1,4 +1,5 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var app = express();
 
 const base = __dirname;
@@ -10,9 +11,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-/* ============================================ 
-(11)  The body-parser goes here
-=============================================== */
+// (11) Use body-parser to Parse POST Requests
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // (1) Meet the node console.
 console.log("Hello World");
@@ -74,8 +74,6 @@ app.get("/name", function (req, res) {
   let data = { name: `${first} ${last}` };
   res.send(data);
 });
-
-// (11) Use body-parser to Parse POST Requests
 
 // (12) Get Data from POST Requests
 
