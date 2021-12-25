@@ -67,6 +67,13 @@ app.get("/:word/echo", function (req, res) {
 });
 
 // (10) Get Query Parameter Input from the Client
+app.get("/name", function (req, res) {
+  let first = req.query.first;
+  let last = req.query.last;
+
+  let data = { name: `${first} ${last}` };
+  res.send(data);
+});
 
 // (11) Use body-parser to Parse POST Requests
 
