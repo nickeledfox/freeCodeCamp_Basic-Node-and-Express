@@ -1,5 +1,5 @@
 var express = require("express");
-var bodyParser = require("body-parser");
+var bodyParser = require("body-parser"); // it's should be in the starter json file otherwise install
 var app = express();
 
 const base = __dirname;
@@ -67,15 +67,18 @@ app.get("/:word/echo", function (req, res) {
 });
 
 // (10) Get Query Parameter Input from the Client
-app.get("/name", function (req, res) {
-  let first = req.query.first;
-  let last = req.query.last;
+app
+  .get("/name", function (req, res) {
+    const first = req.query.first;
+    const last = req.query.last;
 
-  let data = { name: `${first} ${last}` };
-  res.send(data);
-});
-
-// (12) Get Data from POST Requests
+    const data = { name: `${first} ${last}` };
+    res.send(data);
+  }) // (12) Get Data from POST Requests
+  .post("/name", function (req, res) {
+    const postData = req.body.first + " " + req.body.last;
+    res.json({ name: postData });
+  });
 
 /*
 ===========================================================
